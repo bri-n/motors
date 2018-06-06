@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<mars-10 date="1-May-2017" version="1.0">
+    <!-- Collimators have a zero position in the centre of the beam. -->
+    <!-- From the X-ray point of view: -->
+    <!--      negative means to the left for the left and right collimators -->
+    <!--      negative means to the down for the top and bottom collimators -->
+    <motor type="rotation" name="rotation">
+        <!--<name>rotation</name>-->
+            <units>degrees</units>
+            <motor_steps_per_unit>5850</motor_steps_per_unit>
+            <position>
+                <min>0</min>
+                <max>360</max>
+                <park>120</park>
+                <initialise>90</initialise>
+            </position>
+            <allowed_direction>front-downwards</allowed_direction>
+            <allowed_direction>front-upwards</allowed_direction>
+            <safe_direction>front-upwards</safe_direction>
+            <safe_position>0</safe_position>
+    </motor>
+    <motor type="filter_bar" name="filter_bar">
+        <!--<name>filter_bar</name>-->
+        <units>mm</units>
+        <motor_steps_per_unit>13250</motor_steps_per_unit>
+        <position>
+            <min>-2</min>
+            <max>+66</max>
+            <park>+32</park>
+            <initialise>+32</initialise>
+        </position>
+        <filter name="Al 1.8mm">
+            <position>0</position>
+        </filter>
+        <filter name="Cu 1.8mm">
+            <position>16</position>
+        </filter>
+        <filter name="Open">
+            <position>32</position>
+        </filter>
+        <filter name="Brass 1.125mm">
+            <position>48</position>
+        </filter>
+        <filter name="Brass 2.50mm">
+            <position>64</position>
+        </filter>
+    </motor>
+    <motor type="collimator" name="left_collimator">
+        <!--<name>left_collimator</name>-->
+        <units>mm</units>
+        <motor_steps_per_unit>13250</motor_steps_per_unit>
+        <position>
+            <min>-30</min>
+            <max>+10</max>
+            <park>-12</park>
+            <initialise>-8</initialise>
+        </position>
+        <cooperate_with>right_collimator</cooperate_with>
+        <!-- Could add a "safe direction" to show if a move in the +ve (or -ve) direction -->
+        <!-- is always safe -->
+        <allowed_direction>left</allowed_direction>
+        <allowed_direction>right</allowed_direction>
+        <safe_direction>left</safe_direction>
+        <safe_position>-30</safe_position>
+
+    </motor>
+    <motor type="collimator" name="right_collimator">
+        <!--<name>right_collimator</name>-->
+        <units>mm</units>
+        <motor_steps_per_unit>13250</motor_steps_per_unit>
+        <position>
+            <min>-10</min>
+            <max>+30</max>
+            <park>+12</park>
+            <initialise>+8</initialise>
+        </position>
+        <cooperate_with>left_collimator</cooperate_with>
+    </motor>
+    <motor type="collimator" name="bottom_collimator">
+        <!--<name>bottom_collimator</name>-->
+        <units>mm</units>
+        <motor_steps_per_unit>13250</motor_steps_per_unit>
+        <position>
+            <min>-30</min>
+            <max>+10</max>
+            <park>-12</park>
+            <initialise>-8</initialise>
+        </position>
+        <cooperate_with>top_collimator</cooperate_with>
+        <allowed_direction>up</allowed_direction>
+        <allowed_direction>down</allowed_direction>
+        <safe_direction>down</safe_direction>
+        <safe_position>-30</safe_position>
+    </motor>
+    <motor type="collimator" name="top_collimator">
+        <!--<name>top_collimator</name>-->
+        <units>mm</units>
+        <motor_steps_per_unit>13250</motor_steps_per_unit>
+        <position>
+            <min>-10</min>
+            <max>+30</max>
+            <park>+12</park>
+            <initialise>+8</initialise>
+        </position>
+        <cooperate_with>bottom_collimator</cooperate_with>
+    </motor>
+    <motor type="filter_bar" name="filter_bar">
+        <!--<name>filter_bar</name>-->
+        <units>mm</units>
+        <motor_steps_per_unit>13250</motor_steps_per_unit>
+        <position>
+            <min>-2</min>
+            <max>+66</max>
+            <park>+32</park>
+            <initialise>+32</initialise>
+        </position>
+        <allowed_direction>left</allowed_direction>
+        <allowed_direction>right</allowed_direction>
+        <safe_direction>left</safe_direction>
+        <safe_position>32</safe_position>
+        <cooperate_with></cooperate_with>
+        <filter name="Al 1.8mm">
+            <position>0</position>
+        </filter>
+        <filter name="Cu 1.8mm">
+            <position>16</position>
+        </filter>
+        <filter name="Open">
+            <position>32</position>
+        </filter>
+        <filter name="Brass 1.125mm">
+            <position>48</position>
+        </filter>
+        <filter name="Brass 2.50mm">
+            <position>64</position>
+        </filter>
+    </motor>
+</mars-10>
